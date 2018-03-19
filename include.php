@@ -21,12 +21,12 @@ if (true === $debug) {
 }
 
 /**
- *    Function called by parent, default by the wysiwyg-module
+ * Function called by parent, default by the wysiwyg-module
  *
- *    @param    string    The name of the textarea to watch
- *    @param    mixed    The "id" - some other modules handel this param differ
- *    @param    string    Optional the width, default "100%" of given space.
- *    @param    string    Optional the height of the editor - default is '250px'
+ * @param    string    The name of the textarea to watch
+ * @param    mixed    The "id" - some other modules handel this param differ
+ * @param    string    Optional the width, default "100%" of given space.
+ * @param    string    Optional the height of the editor - default is '250px'
  */
 function show_wysiwyg_editor(
     $name, 
@@ -63,8 +63,8 @@ function show_wysiwyg_editor(
 	$tplPath = str_replace($url['path'],'',$tplRelPath);
 
 	/**
-	 *	Create new CKeditor instance.
-	 *	But first - we've got to revamp this pretty old class a little bit.
+	 * Create new CKeditor instance.
+	 * But first - we've got to revamp this pretty old class a little bit.
 	 */
 	require_once ( $modAbsPath.'/wbce_ckeditor.php' ); // $ckeAbsPath ends with /
 	$ckeditor = new CKEditorPlus( $ckeRelPath );
@@ -78,8 +78,8 @@ function show_wysiwyg_editor(
 	$ckeditor->setTemplatePath($templateFolder);
 
 	/**	
-     *	Looking for the styles
-     */
+	 * Looking for the styles
+	 */
 	$ckeditor->resolve_path(
 		'contentsCss',
 		$tplPath.'/wb_config/editor.css',
@@ -87,8 +87,8 @@ function show_wysiwyg_editor(
 	);
 
 	/**
-     *	Looking for the editor.styles at all ...
-     */
+	 * Looking for the editor.styles at all ...
+	 */
 	$ckeditor->resolve_path(
 		'stylesSet',
 		$tplPath.'/wb_config/editor.styles.js',
@@ -97,8 +97,8 @@ function show_wysiwyg_editor(
 	);
 
 	/**
-     *	The list of templates definition files to load
-     */
+	 * The list of templates definition files to load
+	 */
 	$ckeditor->resolve_path(
 		'templates_files',
 		$tplPath.'/wb_config/editor.templates.js',
@@ -106,13 +106,13 @@ function show_wysiwyg_editor(
 	);
 
 	/**
-     *	Bugfix for the template files as the ckeditor want an array instead a string ...
-     */
+	 * Bugfix for the template files as the ckeditor want an array instead a string ...
+	 */
 	$ckeditor->config['templates_files'] = array($ckeditor->config['templates_files']);
 
 	/**
-     *	Get the config file 
-     */
+	 * Get the config file 
+	 */
 	$ckeditor->resolve_path(
 		'customConfig',
 		$tplPath.'/wb_config/wb_ckconfig.js',
@@ -120,16 +120,16 @@ function show_wysiwyg_editor(
     );
 
 	/**
-     *	The filebrowser are called in the include, because later on we can make switches, use WB_URL and so on
-     */
+	 * The filebrowser are called in the include, because later on we can make switches, use WB_URL and so on
+	 */
 	$connectorPath = $ckeditor->basePath.'filemanager/connectors/php/connector.php';
 	$ckeditor->config['filebrowserBrowseUrl'] = $ckeditor->basePath.'filemanager/browser/default/browser.html?Connector='.$connectorPath;
 	$ckeditor->config['filebrowserImageBrowseUrl'] = $ckeditor->basePath.'filemanager/browser/default/browser.html?Type=Image&Connector='.$connectorPath;
 	$ckeditor->config['filebrowserFlashBrowseUrl'] = $ckeditor->basePath.'filemanager/browser/default/browser.html?Type=Flash&Connector='.$connectorPath;
 
 	/**	
-     *	The Uploader has to be called, too
-     */
+	 * The Uploader has to be called, too
+	 */
 	$ckeditor->config['uploader'] = false; // disabled for security reasons
     
 	if($ckeditor->config['uploader']==true) {
@@ -140,9 +140,9 @@ function show_wysiwyg_editor(
 	}
 
 	/**	
-     *	Define all extra CKEditor plugins here
-     *	This version contains the image2 plugin, to enable it, add simply image2 to the extraPlugins list
-     */
+	 * Define all extra CKEditor plugins here
+	 * This version contains the image2 plugin, to enable it, add simply image2 to the extraPlugins list
+	 */
 	$ckeditor->config['extraPlugins'] = 'wbdroplets,wblink,wbsave,wbshybutton,autolink,ckawesome,codemirror,lineutils,oembed,textselection,widgetselection,syntaxhighlight';
 	$ckeditor->config['removePlugins'] = 'wsc,link,save';
     $ckeditor->config['removeButtons'] = 'Font';
@@ -154,7 +154,7 @@ function show_wysiwyg_editor(
     $ckeditor->config['width'] = $width;
 
 	/**
-	 *	Force the object to print/echo direct instead of returning the HTML source string.
+	 * Force the object to print/echo direct instead of returning the HTML source string.
 	 */
 	$ckeditor->returnOutput = false;
 
