@@ -31,6 +31,7 @@ Toolbar-Configuration, behavior on Enter / Shift+Enter, default language and so 
 The configuration files could already be in the template folder, please take a look inside:
 
 All configuration files are available as default files in _yourinstallation/modules/ckeditor_dev/wb_config
+
 *IMPORTANT: Do not change any file of this folder! As they are overwritten with any update of CKEditor module and / or WBCE!*
 
 
@@ -41,7 +42,7 @@ How can I customize the CKEditor for WBCE?
 #### Answer:
 
 For customizing, copy the files of wb_config to _yourinstallation/templates/_yourdefaulttemplate folder, your changes are only for _yourdefaulttemplate.
-Or copy the wb_config to the folder _yourinstallation/templates folder and all changes in config files are for all templates.
+Or copy the wb_config to _yourinstallation/templates folder and all changes are for all templates.
 
 
 ### Question:
