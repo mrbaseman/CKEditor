@@ -1,20 +1,18 @@
 # CKEditor Developer Edition
 
 ## The popular Editor for the WBCE CMS
-Includes CKEditor 4.9.0 Full Package and some other Plugins, CKE allows editing content and can be integrated in frontend and backend modules.
+Includes CKEditor 4.9.0 Full Package and some other Plugins, CKE allows editing content and can be integrated in modules.
 
-CKEditor 4.7.0.1 and later require WBCE 1.2 !!
+***CKEditor 4.7.0.1 and later require WBCE 1.2 !***
 
 
-## WBCE CKEditor FAQ: How to use customization ---
+## FAQ: Customizing CKEditor
 
 ### Question:
 
 What files are there to customize CKEditor for WBCE?
 
 #### Answer:
-
-There are two different configuration files (editor.css and editor.styles.js). All two configuration files can be found in the template folder, please take look inside:
 
 + editor.css:	
 The default look of the WYSIWYG textarea and the preview.
@@ -30,9 +28,10 @@ Please note: We recommend not to use CKE templates, because the WBCE template sh
 Here are most of the configuration issues defined.
 Toolbar-Configuration, behavior on Enter / Shift+Enter, default language and so on.
 
-All four configuration files are available as default files in _yourinstallation/modules/ckeditor/wb_config
+The configuration files could already be in the template folder, please take a look inside:
 
-IMPORTANT: Do not change any file of this folder! As they are overwritten with any update of CKEditor module and / or WBCE!
+All configuration files are available as default files in _yourinstallation/modules/ckeditor_dev/wb_config
+*IMPORTANT: Do not change any file of this folder! As they are overwritten with any update of CKEditor module and / or WBCE!*
 
 
 ### Question:
@@ -41,7 +40,8 @@ How can I customize the CKEditor for WBCE?
 
 #### Answer:
 
-For customizing, copy the files of wb_config to _yourinstallation/templates/_yourdefaulttemplate folder, your changes are only for _yourdefaulttemplate or copy the wb_config to the folder _yourinstallation/templates folder and all changes in config files are for all templates
+For customizing, copy the files of wb_config to _yourinstallation/templates/_yourdefaulttemplate folder, your changes are only for _yourdefaulttemplate.
+Or copy the wb_config to the folder _yourinstallation/templates folder and all changes in config files are for all templates.
 
 
 ### Question:
