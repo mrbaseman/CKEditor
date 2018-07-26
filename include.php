@@ -36,7 +36,8 @@ function show_wysiwyg_editor(
     $height='350px', 
     $toolbar = false
     ) {
-	global $database,$admin,$section_id;
+	global $database;
+	$oApp = isset($GLOBALS['admin']) ? $GLOBALS['admin'] : $GLOBALS['wb'];
 
 	$modAbsPath = str_replace('\\','/',dirname(__FILE__));
 	$ckeAbsPath = $modAbsPath.'/ckeditor/';
@@ -70,16 +71,16 @@ function show_wysiwyg_editor(
 	$ckeditor = new CKEditorPlus( $ckeRelPath );
 
 	$temp = '';
-	if (isset($admin->page_id)) {
-		$query = "SELECT `template` from `".TABLE_PREFIX."pages` where `page_id`='".(int)$page_id."'";
+	if (isset($oApp->page_id)) {
+		$query = "SELECT `template` from `{TP}pages` where `page_id`='".(int)$oApp->page_id."'";
 		$temp = $database->get_one( $query );
 	}
 	$templateFolder = ($temp == "") ? DEFAULT_TEMPLATE : $temp;
 	$ckeditor->setTemplatePath($templateFolder);
 
-	/**	
-	 * Looking for the styles
-	 */
+	/**
+     * Looking for the styles
+     */
 	$ckeditor->resolve_path(
 		'contentsCss',
 		$tplPath.'/wb_config/editor.css',
@@ -87,8 +88,8 @@ function show_wysiwyg_editor(
 	);
 
 	/**
-	 * Looking for the editor.styles at all ...
-	 */
+     * Looking for the editor.styles at all ...
+     */
 	$ckeditor->resolve_path(
 		'stylesSet',
 		$tplPath.'/wb_config/editor.styles.js',
@@ -97,7 +98,7 @@ function show_wysiwyg_editor(
 	);
 
 	/**
-	 * The list of templates definition files to load
+     * The list of templates definition files to load
 	 */
 	$ckeditor->resolve_path(
 		'templates_files',
@@ -120,18 +121,17 @@ function show_wysiwyg_editor(
     );
 
 	/**
-	 * The filebrowser are called in the include, because later on we can make switches, use WB_URL and so on
-	 */
+     * The filebrowser are called in the include, because later on we can make switches, use WB_URL and so on
+     */
 	$connectorPath = $ckeditor->basePath.'filemanager/connectors/php/connector.php';
 	$ckeditor->config['filebrowserBrowseUrl'] = $ckeditor->basePath.'filemanager/browser/default/browser.html?Connector='.$connectorPath;
 	$ckeditor->config['filebrowserImageBrowseUrl'] = $ckeditor->basePath.'filemanager/browser/default/browser.html?Type=Image&Connector='.$connectorPath;
 	$ckeditor->config['filebrowserFlashBrowseUrl'] = $ckeditor->basePath.'filemanager/browser/default/browser.html?Type=Flash&Connector='.$connectorPath;
 
 	/**	
-	 * The Uploader has to be called, too
-	 */
+     * The Uploader has to be called, too
+     */
 	$ckeditor->config['uploader'] = false; // disabled for security reasons
-    
 	if($ckeditor->config['uploader']==true) {
 		$uploadPath = $ckeditor->basePath.'filemanager/connectors/php/upload.php?Type=';
 		$ckeditor->config['filebrowserUploadUrl'] = $uploadPath.'File';
@@ -140,9 +140,9 @@ function show_wysiwyg_editor(
 	}
 
 	/**	
-	 * Define all extra CKEditor plugins here
-	 * This version contains the image2 plugin, to enable it, add simply image2 to the extraPlugins list
-	 */
+     * Define all extra CKEditor plugins here
+     * This version contains the image2 plugin, to enable it, add simply image2 to the extraPlugins list
+     */
 	$ckeditor->config['extraPlugins'] = 'wbdroplets,wblink,wbsave,wbshybutton,autolink,ckawesome,codemirror,lineutils,oembed,textselection,widgetselection,syntaxhighlight';
 	$ckeditor->config['removePlugins'] = 'wsc,link,save';
     $ckeditor->config['removeButtons'] = 'Font';
