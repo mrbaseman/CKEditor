@@ -65,6 +65,7 @@
             CKEDITOR.scriptLoader.load(CKEDITOR.plugins.getPath("wbsave") + "ibox.js");
         }
     });
+    
 }());
 
 /**
