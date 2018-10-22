@@ -88,20 +88,15 @@ function detect(url) {
     // full youtube url
     if (url.indexOf('youtube') > 0) {
         id = getId(url, "?v=", 3);
-        if (id.indexOf('&list=') > 0) {
-            lastId = getId(id, "&list=", 6);
-            return embed_url = 'https://www.youtube.com/embed/' + id + '?list=' + lastId;
+        if (id.indexOf('&') > 0) {
+            realID = id.split('&');
+            id = realID[0];
         }
         return embed_url = 'https://www.youtube.com/embed/' + id;
     }
     // tiny youtube url
     if (url.indexOf('youtu.be') > 0) {
         id = getId(url);
-        // if this is a playlist
-        if (id.indexOf('&list=') > 0) {
-            lastId = getId(id, "&list=", 6);
-            return embed_url = 'https://www.youtube.com/embed/' + id + '?list=' + lastId;
-        }
         return embed_url = 'https://www.youtube.com/embed/' + id;
     }
     // full vimeo url
