@@ -3,8 +3,6 @@
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
-CKEDITOR.scriptLoader.load('https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js');
-
 CKEDITOR.dialog.add('wbembedDialog', function (editor) {
     return {
         title: editor.lang.wbembed.title,
