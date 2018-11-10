@@ -122,7 +122,7 @@ function show_wysiwyg_editor(
     
     /* Define all extra CKEditor plugins here. This version contains the image2 plugin, to enable it, add simply image2 to the extraPlugins list */
     $ckeditor->config['extraPlugins'] = 'ckawesome,codemirror,textselection,wbdroplets,wbembed,wblink,wbsave,wbshybutton,autolink,lineutils,textmatch,widgetselection,syntaxhighlight';
-    $ckeditor->config['removePlugins'] = 'wsc,link,save';
+    $ckeditor->config['removePlugins'] = 'wsc,link,save,iframe';
     $ckeditor->config['removeButtons'] = 'Font';
     $ckeditor->config['fontawesomePath'] = WB_URL.'/include/font-awesome/css/font-awesome.min.css';
     
