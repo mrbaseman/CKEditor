@@ -77,14 +77,14 @@ function show_wysiwyg_editor(
     $ckeditor->resolve_path(
         'contentsCss',
         $tplPath.'/wb_config/editor.css',
-        $ModPath.'/wb_config/editor.css'
+        $ModPath.'/ckeditor/contents.css'
     );
     
     /* Looking for the editor.styles at all ... */
     $ckeditor->resolve_path(
         'stylesSet',
         $tplPath.'/wb_config/editor.styles.js',
-        $ModPath.'/wb_config/editor.styles.js',
+        $ModPath.'/ckeditor/styles.js',
         'wb:'
     );
     
@@ -102,7 +102,7 @@ function show_wysiwyg_editor(
     $ckeditor->resolve_path(
         'customConfig',
         $tplPath.'/wb_config/wb_ckconfig.js',
-        $ModPath.'/wb_config/wb_ckconfig.js'
+        $ModPath.'/ckeditor/config.js'
     );
     
     /* The filebrowser are called in the include, because later on we can make switches, use WB_URL and so on */
