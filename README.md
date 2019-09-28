@@ -1,7 +1,7 @@
 # CKEditor Developer Edition
 
 ## The popular Editor for the WBCE CMS
-Includes CKEditor 4.12.0.1 Full Package and some other Plugins, CKE allows editing content and can be integrated in modules.
+Includes CKEditor 4.13.0 Full Package and some other Plugins, CKE allows editing content and can be integrated in modules.
 
 ***CKEditor 4.12.0.1 and later require WBCE 1.4 !***
 
